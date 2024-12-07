@@ -7,29 +7,34 @@
   <link rel="stylesheet" href="https://use.typekit.net/vdb8kvd.css">
   <style>
 
+  *{ box-sizing: border-box; }
+
   :root {
     --font-size: 1.25rem;
     --line-height: 1.625rem;
+    --halfway: calc(50vh - (var(--line-height) / 2) );
   }
 
   html {
     font-family: freight-micro-pro, serif;
     background-color: #F9A67C;
     color: #231611;
+    scroll-snap-type: y mandatory;
   }
 
   body {
     margin: 0;
     display: grid;
-    height: 100vh;
+    /* min-height: 100vh; */
     width: 100vw;
-    grid-template-columns: auto 1fr;
+    padding-top: var(--halfway);
+    padding-bottom: var(--halfway);
+    padding-left: min( 33vw, 24rem );
   }
 
   p{
     font-size: var(--font-size);
     line-height: var(--line-height);
-    margin: 0 0 calc( 2 * var(--line-height) );
   }
 
   a {
@@ -39,40 +44,34 @@
   }
 
   .call {
-    /* width: calc(100vw / 6); */
+    margin: 0;
+    position: fixed;
+    top: var(--halfway);
+    left: 0;
     width: min( 33vw, 24rem );
-  }
-
-  .question {
-    position: sticky;
-    top: calc(50vh - var(--line-height));
     text-align: end;
   }
-  
+
   .response {
-    max-height: 100vh;
-    overflow: auto;
-    padding: calc(50vh - var(--line-height)) .325rem calc(50vh - 2 * var(--line-height));
+    margin: 0 0 calc( 2 * var(--line-height) );
+    scroll-snap-align: center;
   }
 
-  .response .answer:last-child {
+  .response:last-child {
     height: var(--line-height);
+    margin: 0;
   }
 
   </style>
 </head>
 <body>
-  <div class="call">
-    <p class="question">probably is</p>
-  </div>
-  <div class="response">
-    <p class="answer"><a href="https://github.com/zachattack">Zach</a>, <a href="https://github.com/jonwrona">Jon</a>, &amp; <a href="https://github.com/moodycomputer">Chris</a></p>
-    <p class="answer">friend shaped</p>
-    <p class="answer">thinking about how companies talk to themselves</p>
-    <p class="answer">just getting started</p>
-    <p class="answer">really not a fan of sprinting</p>
-    <p class="answer">missing the Monster Rancher games</p>
-    <p class="answer">hoping to hear from you</p>
-  </div>
+  <p class="call">probably is&nbsp;</p>
+  <p class="response"><a href="https://github.com/zachattack">Zach</a>, <a href="https://github.com/jonwrona">Jon</a>, &amp; <a href="https://github.com/moodycomputer">Chris</a></p>
+  <p class="response">friend shaped</p>
+  <p class="response">thinking about how companies talk to themselves</p>
+  <p class="response">just getting started</p>
+  <p class="response">really not a fan of sprinting</p>
+  <p class="response">missing the Monster Rancher games</p>
+  <p class="response">hoping to hear from you</p>
 </body>
 </html>
